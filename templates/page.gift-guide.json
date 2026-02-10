@@ -3,5 +3,9 @@
     "main":{
       "type":"main-page"
     }
-  }
+  },
+  "order":[
+    "main",
+    "gift-guide-banner"
+  ]
 }
