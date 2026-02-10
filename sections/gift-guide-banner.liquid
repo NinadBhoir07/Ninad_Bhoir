@@ -2,7 +2,7 @@
 Custom gift guide banner section
 {%endcomment%}
 
-<section class="custom-banner-hero" style="background-color: {{section.settings.bg_color}}; padding: {{section.settings.section_padding}}px 0;">
+<section id="gift-guide-banner" class="custom-banner-hero" style="background-color: {{section.settings.bg_color}}; padding: {{section.settings.section_padding}}px 0;">
 <div></div>
 </section>
 
@@ -11,3 +11,13 @@ Custom gift guide banner section
   overflow: hidden;
 }
 </style>
+
+{% schema %}
+{
+  "name":"Custom Gift guide banner",
+  "settings":[
+    {
+      "type":"color"
+    }
+  ]
+}
