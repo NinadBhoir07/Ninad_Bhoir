@@ -2,18 +2,73 @@
 Custom gift guide banner section
 {%endcomment%}
 
-<section id="gift-guide-banner" class="custom-banner-hero" style="background-color: {{section.settings.bg_color}}; padding: {{section.settings.section_padding}}px 0;">
-<div></div>
+<section class="gift-banner-hero" style="background-color: {{section.settings.bg_color}}; padding: {{section.settings.section_padding}}px 0;">
+<div class="banner-container" style="max-width: {{section.settings.container_width}}px; margin:0 auto; padding: 0 20px;">
+
+{%- comment -%} Top Bar with Logo and CTA {%- endcomment -%}
+<div class="banner-top-bar" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px;">
+
+{%- comment -%} Logo {%- endcomment -%}
+<div class="banner-logo">
+{% if section.settings.logo_text != blank %}
+<h2 style = "
+font-size: {{section.settings.logo_size}}px;
+font-weight: {{section.settings.logo_weight}};
+color: {{section.settings.logo_color}};
+margin: 0;
+letter-spacing: 2px;
+border: 2px solid {{section.settings.logo_border_color}};
+padding: 8px 16px;
+">
+{{section.settings.logo_text}}
+</h2>
+{% endif %}
+</div>
+
+</div>
+</div>
 </section>
 
 <style>
-.custom-banner-hero {
+.gift-banner-hero {
   overflow: hidden;
 }
+
+
+/* Mobile Responsive */
+@media (max-width: 768px){
+  .banner-top-bar{
+    flex-direction: column !important;
+    gap: 20px;
+    text-align: center;
+  }
+}
+
+.banner-logo h2{
+  flex-direction: column !important;
+}
 </style>
+
 
 {% schema %}
 {
   "name":"Custom Gift guide banner"
+  "settings":[
+    {
+      "type":"header",
+      "content": "Section Settings"
+    },
+    {
+      "type":"color",
+      "id":"bg_color",
+      "label":"Background Color",
+      "default":"#ffffff"
+    }
+  ],
+  "presets" :[
+    {
+      "name":"Custom Banner Hero"
+    }
+  ]
 }
 {%endschema%}
